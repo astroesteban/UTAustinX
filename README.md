@@ -1,6 +1,6 @@
-# UTAustinX UT.6.10x
+# UTAustinX
 
-## Embedded Systems Shape The World
+> Embedded Systems Shape the World
 
 The Labs in this repo are part of the edX course on embedded systems provided
 by UT Austin.
