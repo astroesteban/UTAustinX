@@ -24,6 +24,12 @@
 
 #include <stdint.h>
 
+//
+// TIVAWARE Headers
+//
+#include "hw_nvic.h"
+#include "hw_types.h"
+
 //*****************************************************************************
 //
 // Forward declaration of the default fault handlers.
