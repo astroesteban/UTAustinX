@@ -17,7 +17,7 @@ enable_language(ASM)
 set(CPU "-mcpu=cortex-m4")
 set(FPU "-mfpu=fpv4-sp-d16 -mfloat-abi=softfp")
 set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -mthumb ${CPU}  ${FPU} -MD")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb ${CPU} ${FPU} -g3 -Os -std=c17 -ffunction-sections -fdata-sections -MD -Wall -Wextra -Werror -Wshadow -Wdouble-promotion -Wformat=2 -Wformat-truncation -Wundef -fno-common -Wconversion -pedantic")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb ${CPU} ${FPU} -g3 -Os -std=c11 -ffunction-sections -fdata-sections -MD -Wall -Wextra -Werror -Wshadow -Wdouble-promotion -Wformat=2 -Wformat-truncation -Wundef -fno-common -Wconversion -pedantic")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mthumb ${CPU} ${FPU} -g3 -Os -std=c++17 -ffunction-sections -fdata-sections -MD -Wall -pedantic -fno-exceptions -fno-rtti")
 
 set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
@@ -30,8 +30,8 @@ add_definitions(-DTARGET_IS_TM4C123_RA1)
 add_definitions(-Dgcc)
 
 set(FLASH_EXECUTABLE "lm4flash")
-ADD_CUSTOM_TARGET("flash" DEPENDS ${CMAKE_PROJECT_NAME}.axf 
-  COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.axf ${CMAKE_PROJECT_NAME}.bin 
+ADD_CUSTOM_TARGET("flash" DEPENDS ./src/${CMAKE_PROJECT_NAME}
+  COMMAND ${CMAKE_OBJCOPY} -O binary ./src/${CMAKE_PROJECT_NAME} ${CMAKE_PROJECT_NAME}.bin 
   COMMAND ${FLASH_EXECUTABLE} ${CMAKE_PROJECT_NAME}.bin
 )
 

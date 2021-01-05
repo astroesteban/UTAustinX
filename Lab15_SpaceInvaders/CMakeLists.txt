@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 
+# CMake tests the compile to see if its working. But since we are cross-compiling the test will fail since we are trying
+# to run a cross-compiled executable on the host. The following forces CMake to compile a static library and not an
+# executable.
+set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+
 project(SpaceInvaders VERSION 0.1.0
                  DESCRIPTION "Space Invaders on the TI TM4C123G MCU"
                  LANGUAGES C)
